@@ -19,7 +19,7 @@ Command key (run from repository root; each runs the named tests as part of its 
 - **V**: `bash scripts/verify.sh` → all 22 checks pass.
 
 Transactions illustrate the scenario; unit tests cover additional edge cases.
-A historical transaction does not prove every adversarial variant. Use **V** to
+A recorded transaction does not prove every adversarial variant. Use **V** to
 verify the [recorded transactions](#recorded-transactions)' finalized outcomes and expected receipt results.
 
 | Claim | Code location (file:function) | Test name(s) | Command | Testnet transaction |
@@ -58,7 +58,7 @@ verify the [recorded transactions](#recorded-transactions)' finalized outcomes a
   Enforce has no observation restart / policy re-derivation path.
 - Failed downstream receipts retain conservative spend/quota accounting. Pending
   reservations survive UTC rollover; terminal pending records may be evicted.
-- Recorded tasks/keys expire; evidence verification proves historical outcomes,
+- Recorded tasks/keys expire; evidence verification checks finalized outcomes,
   not current permission to pay. Public archival RPC availability is required.
 - CLI testnet prototype only: no UI, production audit, delivery attestation or
   implemented compensation pool. The optional signing demo needs the tools, testnet CLI configuration and
@@ -78,7 +78,7 @@ change the embedded metadata and WASM hash even if contract logic is identical.
 From the repository root:
 
 ```bash
-git checkout <source_commit>
+git checkout e89d329d7a0558d23de24c4621fd851edff1c1c5
 cd contracts/wallet
 cargo near build reproducible-wasm
 sha256sum target/near/wallet.wasm
@@ -105,8 +105,7 @@ print("PASS: deployed code matches this build")
 PYCODE
 ```
 
-Replace `<source_commit>` with the recorded build source commit and
-`<WALLET_ACCOUNT_ID>` with the deployed testnet wallet. The RPC query is
+Replace `<WALLET_ACCOUNT_ID>` with the deployed testnet wallet. The RPC query is
 read-only and needs no keys. `code_hash` is the base58 encoding of the WASM's
 SHA-256 digest; `sha256sum` prints that digest in hexadecimal.
 The pinned image/digest and inner build command in `Cargo.toml` control the build;
@@ -117,21 +116,20 @@ The pinned image/digest and inner build command in `Cargo.toml` control the buil
 
 ## Recorded testnet evidence
 
-This evidence predates the reproducible container build switch. It remains
-historical evidence only; source-to-deployment reproducibility must be checked
-after the operator records the build source commit used for the deployed WASM and regenerates
-`scripts/evidence.json`, the accounts, WASM hash, timings and transaction links below.
-Build source commit (`source_commit`): `<SOURCE_COMMIT>` — to be filled by the
-operator here and in `scripts/evidence.json`; no source match is established yet.
+Build source commit (`source_commit`): [e89d329d7a0558d23de24c4621fd851edff1c1c5](https://github.com/tnk4on/agent-wallet/commit/e89d329d7a0558d23de24c4621fd851edff1c1c5).
+The deployed WASM was built with `cargo near build reproducible-wasm` at that
+commit using the image pinned in `contracts/wallet/Cargo.toml`. Its SHA-256
+matches the on-chain `code_hash` (base58-encoded).
 
-Recorded on 2026-11-15. The five-step payment flow took 52.21 seconds, excluding
-setup and build time. This measurement does not include tool installation.
+Recorded on 2026-11-15 (JST; payment timestamps are 2026-11-14 UTC). The saved-run verification took 37.71 seconds, excluding
+setup and build time. `results.json` records `fresh_payment_flow: false` and
+`under_60_seconds: false`; this is not a fresh payment-flow timing claim.
 
-Owner: `agentwallet-demo-0c2d08eef013.testnet`.
-Wallet: `policy-204786.agentwallet-demo-0c2d08eef013.testnet`.
-Watcher: `watcher-204786.agentwallet-demo-0c2d08eef013.testnet`.
+Owner: `agentwallet-demo-8cf55c1f7e0b.testnet`.
+Wallet: `policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet`.
+Watcher: `watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet`.
 
-WASM SHA-256: `87a5f9186d7213f6094961adc8bb0ddc191bd22f8dfa0e336a26bf4fa45da06f`.
+WASM SHA-256: `90c867332bb74078d155f48f20ac46c359df5cdbcd198d21b360c8376596bd66`.
 
 The recorded flow ended in `Enforce`: committed spend 0.0007 testnet NEAR,
 reservations zero, task exception spend 0.0002, and seven agent calls used.
@@ -147,23 +145,26 @@ The claim table above uses the transaction names below.
 
 | Transaction | Explorer |
 | --- | --- |
-| `create-wallet` | [2FUKHQ6QPi7g6UQea6CTX5PbJhby9XrQn5Q7iFsq5eLR](https://testnet.nearblocks.io/txns/2FUKHQ6QPi7g6UQea6CTX5PbJhby9XrQn5Q7iFsq5eLR) |
-| `create-watcher` | [5vJjx488BWB3u7UWidj8N3AtpGuZ6cYJ7RvfKFob9mhP](https://testnet.nearblocks.io/txns/5vJjx488BWB3u7UWidj8N3AtpGuZ6cYJ7RvfKFob9mhP) |
-| `add-agent-key` | [4ky5adiVpuZEw4L5Q5DitWT3VAEmWmhSqg4qzRNqFbCT](https://testnet.nearblocks.io/txns/4ky5adiVpuZEw4L5Q5DitWT3VAEmWmhSqg4qzRNqFbCT) |
-| `add-watcher-key` | [6pcuqUn1zUgr1TFFPmzqDPcZVV6L3U3HeTeWE5hDHdqt](https://testnet.nearblocks.io/txns/6pcuqUn1zUgr1TFFPmzqDPcZVV6L3U3HeTeWE5hDHdqt) |
-| `deploy-init` | [ADDxLkKpEPAmoF9PFsnDxPHhKpXNT3XH4Vyj7u7XfzWj](https://testnet.nearblocks.io/txns/ADDxLkKpEPAmoF9PFsnDxPHhKpXNT3XH4Vyj7u7XfzWj) |
-| `register-agent` | [3cBsW1pTc7pAX4AYfWzhbuCdtgXiBjtH9HtxUirMQwDG](https://testnet.nearblocks.io/txns/3cBsW1pTc7pAX4AYfWzhbuCdtgXiBjtH9HtxUirMQwDG) |
-| `observe-1` | [G2ig4UjPeqyYmNDFKBxiLPpSGr9ti2DcwZ6ZmCKcX54F](https://testnet.nearblocks.io/txns/G2ig4UjPeqyYmNDFKBxiLPpSGr9ti2DcwZ6ZmCKcX54F) |
-| `observe-2` | [4NrMxhVD1YfZigvPxUGKGgaRsweJ2FBSxQVyTBWyBr4E](https://testnet.nearblocks.io/txns/4NrMxhVD1YfZigvPxUGKGgaRsweJ2FBSxQVyTBWyBr4E) |
-| `observe-3` | [HiXkuheBmk4FZRE1uTRYJDkhRUVjkbJbMntXiHPzLjAc](https://testnet.nearblocks.io/txns/HiXkuheBmk4FZRE1uTRYJDkhRUVjkbJbMntXiHPzLjAc) |
-| `observe-4` | [2QPCN8aFCWXqSSKDaaVrVjevHm6FBaQ1e2dMhbbd5uG1](https://testnet.nearblocks.io/txns/2QPCN8aFCWXqSSKDaaVrVjevHm6FBaQ1e2dMhbbd5uG1) |
-| `observe-5` | [8prbNekFJhJA2CWcLScb7JNULBtR3dcH78699AbFY2nt](https://testnet.nearblocks.io/txns/8prbNekFJhJA2CWcLScb7JNULBtR3dcH78699AbFY2nt) |
-| `propose` | [1P3jHpimj45xKccQW1ivyB9Jq6m94iDFkeeThg1YPdT](https://testnet.nearblocks.io/txns/1P3jHpimj45xKccQW1ivyB9Jq6m94iDFkeeThg1YPdT) |
-| `approve` | [TqGPNR4WV7nGwvYXYACZrwQ9z9ZRnMNfMiheggS5uAY](https://testnet.nearblocks.io/txns/TqGPNR4WV7nGwvYXYACZrwQ9z9ZRnMNfMiheggS5uAY) |
-| `poisoned-unknown` | [FvQWM7CVW79Qtw1xJDwkky6f25NDJmKfNpwwj3G53D5L](https://testnet.nearblocks.io/txns/FvQWM7CVW79Qtw1xJDwkky6f25NDJmKfNpwwj3G53D5L) |
-| `large-40x` | [8yXPD23bnP5ivwm7akRTe41toH1cPFnqomRjv1ujzV2W](https://testnet.nearblocks.io/txns/8yXPD23bnP5ivwm7akRTe41toH1cPFnqomRjv1ujzV2W) |
-| `watcher-1` | [EDXsFiLf9aAi8151V2sDrjqi6wC4Tq1XhPvj3d3bnkAH](https://testnet.nearblocks.io/txns/EDXsFiLf9aAi8151V2sDrjqi6wC4Tq1XhPvj3d3bnkAH) |
-| `legitimate-bump` | [EXzG9ZS4SVfD2MDS13rhUbcmNthCrXaHoQ8zxZD1kpUr](https://testnet.nearblocks.io/txns/EXzG9ZS4SVfD2MDS13rhUbcmNthCrXaHoQ8zxZD1kpUr) |
-| `watcher-2` | [F36PJWBxTRZGBiXdVFYB7QiadmmpZJq94V2JCPQkfmxS](https://testnet.nearblocks.io/txns/F36PJWBxTRZGBiXdVFYB7QiadmmpZJq94V2JCPQkfmxS) |
+| `create-wallet` | [651D5UwWvN91YD7BA2wF3q2gCsPYAhiy5E7js3X7z8TZ](https://testnet.nearblocks.io/txns/651D5UwWvN91YD7BA2wF3q2gCsPYAhiy5E7js3X7z8TZ) |
+| `create-watcher` | [H7DnMp5iVvKt5yKHNVEQnGHpi94pdKr57jHhAC5tP1uq](https://testnet.nearblocks.io/txns/H7DnMp5iVvKt5yKHNVEQnGHpi94pdKr57jHhAC5tP1uq) |
+| `add-agent-key` | [2XddnBeAnYE23CwJpfZUrUTC8D9ph4zEWRo3rRtQotxb](https://testnet.nearblocks.io/txns/2XddnBeAnYE23CwJpfZUrUTC8D9ph4zEWRo3rRtQotxb) |
+| `add-watcher-key` | [HF1z4ng4VfTZGmdRgipRNvucic8JizezreCjtY4RywGJ](https://testnet.nearblocks.io/txns/HF1z4ng4VfTZGmdRgipRNvucic8JizezreCjtY4RywGJ) |
+| `deploy-init` | [8hqvoihnnhNhy8KowHxS25udaynwXMc9HTXr8KDdxTW8](https://testnet.nearblocks.io/txns/8hqvoihnnhNhy8KowHxS25udaynwXMc9HTXr8KDdxTW8) |
+| `register-agent` | [4BktjwA7m2KvyPSnXG2hLLcgoUxq1Cmo6jBjXjjwg2PU](https://testnet.nearblocks.io/txns/4BktjwA7m2KvyPSnXG2hLLcgoUxq1Cmo6jBjXjjwg2PU) |
+| `observe-1` | [4nzPKquRTK3MsHwxLpo9NB7PRKVQNnEunfT9kzaKmUzp](https://testnet.nearblocks.io/txns/4nzPKquRTK3MsHwxLpo9NB7PRKVQNnEunfT9kzaKmUzp) |
+| `observe-2` | [EaeBZ9re2edXuUN91jDxdoYDUK2GRB9k7oFtsZ9yqieW](https://testnet.nearblocks.io/txns/EaeBZ9re2edXuUN91jDxdoYDUK2GRB9k7oFtsZ9yqieW) |
+| `observe-3` | [37SB7LUvK44jJuS5W4MgYjDDbaNFdioHXvc64yT6f6HK](https://testnet.nearblocks.io/txns/37SB7LUvK44jJuS5W4MgYjDDbaNFdioHXvc64yT6f6HK) |
+| `observe-4` | [BJvEd8u5q97QE9rQe3mNrR8JTr5i6qx9ePjF8M5hd6tv](https://testnet.nearblocks.io/txns/BJvEd8u5q97QE9rQe3mNrR8JTr5i6qx9ePjF8M5hd6tv) |
+| `observe-5` | [GFtuwcaNZNMm1UKVusjYWMEwQKmWBrDY3oBZjuwYMX7y](https://testnet.nearblocks.io/txns/GFtuwcaNZNMm1UKVusjYWMEwQKmWBrDY3oBZjuwYMX7y) |
+| `propose` | [8qfUH54Lu8EjmPjz1iK5r7SQGdWQPmoTtAQcaJn4AZi1](https://testnet.nearblocks.io/txns/8qfUH54Lu8EjmPjz1iK5r7SQGdWQPmoTtAQcaJn4AZi1) |
+| `approve` | [42qVe7EArYmR8y9uwiCkifKeQk9KsDusfNvDwwcKzidb](https://testnet.nearblocks.io/txns/42qVe7EArYmR8y9uwiCkifKeQk9KsDusfNvDwwcKzidb) |
+| `poisoned-unknown` | [4VASqy1PkWZdMh26JLCtM5xrLpffjk7bCdvKLkGLHTxU](https://testnet.nearblocks.io/txns/4VASqy1PkWZdMh26JLCtM5xrLpffjk7bCdvKLkGLHTxU) |
+| `large-40x` | [RHbFxCi89i5umUmsv3UZGsQKg2fSFfvDdfrak8zXr89](https://testnet.nearblocks.io/txns/RHbFxCi89i5umUmsv3UZGsQKg2fSFfvDdfrak8zXr89) |
+| `watcher-1` | [2DBD842NfU4DiXZNAbp7fsh1moqWehpCxgfwgXi2uJbu](https://testnet.nearblocks.io/txns/2DBD842NfU4DiXZNAbp7fsh1moqWehpCxgfwgXi2uJbu) |
+| `legitimate-bump` | [4T1yu5FRDmSyf7K46yzsatKQ5mjxxYkQRtZChFbagCq2](https://testnet.nearblocks.io/txns/4T1yu5FRDmSyf7K46yzsatKQ5mjxxYkQRtZChFbagCq2) |
+| `watcher-2` | [F2fxG5Bk8Hx4NoioiL6p1X3vWqG4KWQtj1LpRNRssKRx](https://testnet.nearblocks.io/txns/F2fxG5Bk8Hx4NoioiL6p1X3vWqG4KWQtj1LpRNRssKRx) |
 
 The machine-readable expectations are in [scripts/evidence.json](scripts/evidence.json).
+The supplied `results.json` contains the 12 payment/policy transaction hashes;
+saved public RPC outcomes supply the six setup transaction hashes. The verifier
+checks all 18 transactions plus four state/code checks (22 total).

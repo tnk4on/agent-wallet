@@ -32,9 +32,15 @@ service and set `export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock`
 revision used for deployment; commit `Cargo.lock` too. A different commit can
 change the embedded metadata and WASM hash even if contract logic is identical.
 
+The deployed testnet WASM was built with `cargo near build reproducible-wasm` at
+[e89d329d7a0558d23de24c4621fd851edff1c1c5](https://github.com/tnk4on/agent-wallet/commit/e89d329d7a0558d23de24c4621fd851edff1c1c5).
+Its SHA-256 is `90c867332bb74078d155f48f20ac46c359df5cdbcd198d21b360c8376596bd66`,
+matching the on-chain `code_hash` (base58-encoded).
+
 From the repository root:
 
 ```bash
+git checkout e89d329d7a0558d23de24c4621fd851edff1c1c5
 cd contracts/wallet
 cargo near build reproducible-wasm
 sha256sum target/near/wallet.wasm

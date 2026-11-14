@@ -43,6 +43,11 @@ and Rust 1.93.0 (pinned by `contracts/wallet/rust-toolchain.toml`).
    ```
    Expect exit 0, no formatting differences, no clippy warnings.
 
+The deployed testnet WASM was built with `cargo near build reproducible-wasm` at
+[e89d329d7a0558d23de24c4621fd851edff1c1c5](https://github.com/tnk4on/agent-wallet/commit/e89d329d7a0558d23de24c4621fd851edff1c1c5).
+Its SHA-256 is `90c867332bb74078d155f48f20ac46c359df5cdbcd198d21b360c8376596bd66`,
+matching the on-chain `code_hash` (base58-encoded).
+
 ## Optional full signing demo (not required for judging)
 
 Needs Python 3.11+, cargo-near 0.22.0,

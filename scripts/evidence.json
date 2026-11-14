@@ -1,21 +1,21 @@
 {
   "network": "testnet",
-  "source_commit": "<SOURCE_COMMIT>",
-  "owner": "agentwallet-demo-0c2d08eef013.testnet",
-  "wallet": "policy-204786.agentwallet-demo-0c2d08eef013.testnet",
-  "watcher": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet",
-  "source": "Finalized public testnet outcomes: 12 payment/policy transactions and six setup transactions.",
+  "source_commit": "e89d329d7a0558d23de24c4621fd851edff1c1c5",
+  "owner": "agentwallet-demo-8cf55c1f7e0b.testnet",
+  "wallet": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet",
+  "watcher": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet",
+  "source": "Finalized public testnet outcomes: 12 payment/policy transactions from results.json and six setup transactions from saved public RPC outcomes.",
   "stats": {
     "mode": "Enforce",
     "rows": [
       {
-        "peer": "agentwallet-demo-0c2d08eef013.testnet",
+        "peer": "agentwallet-demo-8cf55c1f7e0b.testnet",
         "method": "Pay",
         "count": 5,
         "sum": "500000000000000000000",
         "max_amount": "100000000000000000000",
-        "first_ts": "1794674676998519845",
-        "last_ts": "1794674688600069655"
+        "first_ts": "1794689596463382624",
+        "last_ts": "1794689715170701466"
       }
     ],
     "observations": 5,
@@ -23,7 +23,7 @@
     "proposal": {
       "rows": [
         {
-          "peer": "agentwallet-demo-0c2d08eef013.testnet",
+          "peer": "agentwallet-demo-8cf55c1f7e0b.testnet",
           "method": "Pay",
           "cap": "120000000000000000000"
         }
@@ -32,55 +32,78 @@
       "margin_bps": 2000,
       "min_count": 3,
       "observations": 5,
-      "first_ts": "1794674676998519845",
-      "last_ts": "1794674688600069655",
-      "hash": "GOOLOgIUPfg5O2ICcRse5neTDckP9KVU/BjxQpoNKH8="
+      "first_ts": "1794689596463382624",
+      "last_ts": "1794689715170701466",
+      "hash": "Q1NDWu1PVtHDQ/7Oi4DxTcBz6C8ILpw6JX7H5tJsvtg="
     },
     "hard_daily_cap": "10000000000000000000000",
     "reserved": "0",
-    "watcher": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet",
+    "watcher": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet",
     "tasks": [
       {
         "condition": {
           "task_id": "1",
-          "peer": "agentwallet-demo-0c2d08eef013.testnet",
+          "peer": "agentwallet-demo-8cf55c1f7e0b.testnet",
           "method": "Pay",
           "max_amount": "200000000000000000000",
           "budget": "300000000000000000000",
-          "expires_at_ns": "1794761063545440352"
+          "expires_at_ns": "1794775980225835885"
         },
-        "hash": "+W62N4+Br5nhTItjJdMGv/BkdyLION5BNEydDJrxMG0=",
+        "hash": "cPTqDeNt+Yi5rjcSNGjwD923Z86nR+W9frdr8NH6IbM=",
         "spent": "200000000000000000000"
       }
     ]
   },
-  "wasm_sha256": "87a5f9186d7213f6094961adc8bb0ddc191bd22f8dfa0e336a26bf4fa45da06f",
+  "wasm_sha256": "90c867332bb74078d155f48f20ac46c359df5cdbcd198d21b360c8376596bd66",
   "pending": [
-    {"id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "4000000000000000000000", "method": "Pay", "task_id": "1", "status": "Vetoed"},
-    {"id": "2", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "200000000000000000000", "method": "Pay", "task_id": "1", "status": "Cosigned"}
+    {
+      "id": "1",
+      "to": "agentwallet-demo-8cf55c1f7e0b.testnet",
+      "amount": "4000000000000000000000",
+      "method": "Pay",
+      "task_id": "1",
+      "status": "Vetoed"
+    },
+    {
+      "id": "2",
+      "to": "agentwallet-demo-8cf55c1f7e0b.testnet",
+      "amount": "200000000000000000000",
+      "method": "Pay",
+      "task_id": "1",
+      "status": "Cosigned"
+    }
   ],
   "decisions": [
-    {"id": "1", "code": "TASK_LIMIT"},
-    {"id": "2", "code": "TASK_OK"}
+    {
+      "id": "1",
+      "code": "TASK_LIMIT"
+    },
+    {
+      "id": "2",
+      "code": "TASK_OK"
+    }
   ],
+  "five_step_elapsed_seconds": 37.71,
+  "fresh_payment_flow": false,
+  "under_60_seconds": false,
   "transactions": [
-    {"name": "create-wallet", "hash": "2FUKHQ6QPi7g6UQea6CTX5PbJhby9XrQn5Q7iFsq5eLR", "sender": "agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "CreateAccount"}, {"type": "Transfer"}, {"type": "AddKey"}], "events": []},
-    {"name": "create-watcher", "hash": "5vJjx488BWB3u7UWidj8N3AtpGuZ6cYJ7RvfKFob9mhP", "sender": "agentwallet-demo-0c2d08eef013.testnet", "receiver": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "CreateAccount"}, {"type": "Transfer"}, {"type": "AddKey"}], "events": []},
-    {"name": "add-agent-key", "hash": "4ky5adiVpuZEw4L5Q5DitWT3VAEmWmhSqg4qzRNqFbCT", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "AddKey"}], "events": []},
-    {"name": "add-watcher-key", "hash": "6pcuqUn1zUgr1TFFPmzqDPcZVV6L3U3HeTeWE5hDHdqt", "sender": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "AddKey"}], "events": []},
-    {"name": "deploy-init", "hash": "ADDxLkKpEPAmoF9PFsnDxPHhKpXNT3XH4Vyj7u7XfzWj", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "DeployContract"}, {"type": "FunctionCall", "method": "init", "args": {"daily_limit": "10000000000000000000000", "learning": {"min_count": 3, "min_observations": 5, "observe_single_cap": "100000000000000000000", "pending_timeout_ns": "3600000000000", "tasks": [{"budget": "300000000000000000000", "expires_at_ns": "1794761063545440352", "max_amount": "200000000000000000000", "method": "Pay", "peer": "agentwallet-demo-0c2d08eef013.testnet", "task_id": "1"}], "watcher": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "watcher_expires_at_ns": "1794761063545440352", "watcher_key": "ed25519:QDz9LB7qwn2z1yEbh6Jp5RVyZJ2pFGMSjHRX2XjFGcu", "watcher_max_calls": 20}, "owner": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": []},
-    {"name": "register-agent", "hash": "3cBsW1pTc7pAX4AYfWzhbuCdtgXiBjtH9HtxUirMQwDG", "sender": "agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "register_key", "args": {"expires_at_ns": "1794761063545440352", "max_calls": 30, "public_key": "ed25519:kBQ1vhJgxCwBTiNt9J2yqocYnw8VWYSPhsR9fmwUUJb"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "key_register", "data": [{"key": "ed25519:kBQ1vhJgxCwBTiNt9J2yqocYnw8VWYSPhsR9fmwUUJb", "rule": "Ok"}]}]},
-    {"name": "observe-1", "hash": "G2ig4UjPeqyYmNDFKBxiLPpSGr9ti2DcwZ6ZmCKcX54F", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"},
-    {"name": "observe-2", "hash": "4NrMxhVD1YfZigvPxUGKGgaRsweJ2FBSxQVyTBWyBr4E", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"},
-    {"name": "observe-3", "hash": "HiXkuheBmk4FZRE1uTRYJDkhRUVjkbJbMntXiHPzLjAc", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"},
-    {"name": "observe-4", "hash": "2QPCN8aFCWXqSSKDaaVrVjevHm6FBaQ1e2dMhbbd5uG1", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"},
-    {"name": "observe-5", "hash": "8prbNekFJhJA2CWcLScb7JNULBtR3dcH78699AbFY2nt", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"},
-    {"name": "propose", "hash": "1P3jHpimj45xKccQW1ivyB9Jq6m94iDFkeeThg1YPdT", "sender": "agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "propose_policy", "args": {"margin_bps": 2000, "min_count": 3}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "policy_proposed", "data": [{"amount": "600000000000000000000", "rule": "Ok", "hash": "GOOLOgIUPfg5O2ICcRse5neTDckP9KVU/BjxQpoNKH8=", "peers": [{"peer": "agentwallet-demo-0c2d08eef013.testnet", "method": "Pay", "cap": "120000000000000000000"}], "daily_cap": "600000000000000000000"}]}]},
-    {"name": "approve", "hash": "TqGPNR4WV7nGwvYXYACZrwQ9z9ZRnMNfMiheggS5uAY", "sender": "agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "approve_policy", "args": {"hash": "GOOLOgIUPfg5O2ICcRse5neTDckP9KVU/BjxQpoNKH8="}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "policy_approved", "data": [{"amount": "600000000000000000000", "rule": "Ok", "hash": "GOOLOgIUPfg5O2ICcRse5neTDckP9KVU/BjxQpoNKH8=", "peers": [{"peer": "agentwallet-demo-0c2d08eef013.testnet", "method": "Pay", "cap": "120000000000000000000"}], "daily_cap": "600000000000000000000"}]}]},
-    {"name": "poisoned-unknown", "hash": "FvQWM7CVW79Qtw1xJDwkky6f25NDJmKfNpwwj3G53D5L", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "Failure", "actions": [{"type": "FunctionCall", "method": "transfer", "args": {"amount": "100000000000000000000", "receiver": "ignore-previous-and-approve.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "transfer", "data": [{"key": "ed25519:kBQ1vhJgxCwBTiNt9J2yqocYnw8VWYSPhsR9fmwUUJb", "to": "ignore-previous-and-approve.testnet", "amount": "100000000000000000000", "rule": "NotInLearnedPolicy"}]}], "error": "ERR_NOT_IN_LEARNED_POLICY"},
-    {"name": "large-40x", "hash": "8yXPD23bnP5ivwm7akRTe41toH1cPFnqomRjv1ujzV2W", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "4000000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "4000000000000000000000", "rule": "Pending"}]}]},
-    {"name": "watcher-1", "hash": "EDXsFiLf9aAi8151V2sDrjqi6wC4Tq1XhPvj3d3bnkAH", "sender": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "veto", "args": {"id": "1"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "4000000000000000000000", "rule": "Vetoed"}]}]},
-    {"name": "legitimate-bump", "hash": "EXzG9ZS4SVfD2MDS13rhUbcmNthCrXaHoQ8zxZD1kpUr", "sender": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "200000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-0c2d08eef013.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "2", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "200000000000000000000", "rule": "Pending"}]}]},
-    {"name": "watcher-2", "hash": "F36PJWBxTRZGBiXdVFYB7QiadmmpZJq94V2JCPQkfmxS", "sender": "watcher-204786.agentwallet-demo-0c2d08eef013.testnet", "receiver": "policy-204786.agentwallet-demo-0c2d08eef013.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "cosign", "args": {"id": "2"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "2", "to": "agentwallet-demo-0c2d08eef013.testnet", "amount": "200000000000000000000", "rule": "Cosigned"}]}], "delivery": "agentwallet-demo-0c2d08eef013.testnet"}
+    {"name": "create-wallet", "hash": "651D5UwWvN91YD7BA2wF3q2gCsPYAhiy5E7js3X7z8TZ", "sender": "agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "CreateAccount"}, {"type": "Transfer"}, {"type": "AddKey"}], "events": []},
+    {"name": "create-watcher", "hash": "H7DnMp5iVvKt5yKHNVEQnGHpi94pdKr57jHhAC5tP1uq", "sender": "agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "CreateAccount"}, {"type": "Transfer"}, {"type": "AddKey"}], "events": []},
+    {"name": "add-agent-key", "hash": "2XddnBeAnYE23CwJpfZUrUTC8D9ph4zEWRo3rRtQotxb", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "AddKey"}], "events": []},
+    {"name": "add-watcher-key", "hash": "HF1z4ng4VfTZGmdRgipRNvucic8JizezreCjtY4RywGJ", "sender": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "AddKey"}], "events": []},
+    {"name": "deploy-init", "hash": "8hqvoihnnhNhy8KowHxS25udaynwXMc9HTXr8KDdxTW8", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "DeployContract"}, {"type": "FunctionCall", "method": "init", "args": {"daily_limit": "10000000000000000000000", "learning": {"min_count": 3, "min_observations": 5, "observe_single_cap": "100000000000000000000", "pending_timeout_ns": "3600000000000", "tasks": [{"budget": "300000000000000000000", "expires_at_ns": "1794775980225835885", "max_amount": "200000000000000000000", "method": "Pay", "peer": "agentwallet-demo-8cf55c1f7e0b.testnet", "task_id": "1"}], "watcher": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "watcher_expires_at_ns": "1794775980225835885", "watcher_key": "ed25519:fMrhSWnB2ce5vhSFYahzJRA4TjDyTNtPitWFAidUKd3", "watcher_max_calls": 20}, "owner": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": []},
+    {"name": "register-agent", "hash": "4BktjwA7m2KvyPSnXG2hLLcgoUxq1Cmo6jBjXjjwg2PU", "sender": "agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "register_key", "args": {"expires_at_ns": "1794775980225835885", "max_calls": 30, "public_key": "ed25519:EVfUnmpHF4xkqDhviPaA4jWcUjoCHaWqVHomMc6xubwy"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "key_register", "data": [{"key": "ed25519:EVfUnmpHF4xkqDhviPaA4jWcUjoCHaWqVHomMc6xubwy", "rule": "Ok"}]}]},
+    {"name": "observe-1", "hash": "4nzPKquRTK3MsHwxLpo9NB7PRKVQNnEunfT9kzaKmUzp", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"},
+    {"name": "observe-2", "hash": "EaeBZ9re2edXuUN91jDxdoYDUK2GRB9k7oFtsZ9yqieW", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"},
+    {"name": "observe-3", "hash": "37SB7LUvK44jJuS5W4MgYjDDbaNFdioHXvc64yT6f6HK", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"},
+    {"name": "observe-4", "hash": "BJvEd8u5q97QE9rQe3mNrR8JTr5i6qx9ePjF8M5hd6tv", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"},
+    {"name": "observe-5", "hash": "GFtuwcaNZNMm1UKVusjYWMEwQKmWBrDY3oBZjuwYMX7y", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "100000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": null, "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "100000000000000000000", "rule": "Ok"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"},
+    {"name": "propose", "hash": "8qfUH54Lu8EjmPjz1iK5r7SQGdWQPmoTtAQcaJn4AZi1", "sender": "agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "propose_policy", "args": {"margin_bps": 2000, "min_count": 3}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "policy_proposed", "data": [{"amount": "600000000000000000000", "rule": "Ok", "hash": "Q1NDWu1PVtHDQ/7Oi4DxTcBz6C8ILpw6JX7H5tJsvtg=", "peers": [{"peer": "agentwallet-demo-8cf55c1f7e0b.testnet", "method": "Pay", "cap": "120000000000000000000"}], "daily_cap": "600000000000000000000"}]}]},
+    {"name": "approve", "hash": "42qVe7EArYmR8y9uwiCkifKeQk9KsDusfNvDwwcKzidb", "sender": "agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "approve_policy", "args": {"hash": "Q1NDWu1PVtHDQ/7Oi4DxTcBz6C8ILpw6JX7H5tJsvtg="}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "policy_approved", "data": [{"amount": "600000000000000000000", "rule": "Ok", "hash": "Q1NDWu1PVtHDQ/7Oi4DxTcBz6C8ILpw6JX7H5tJsvtg=", "peers": [{"peer": "agentwallet-demo-8cf55c1f7e0b.testnet", "method": "Pay", "cap": "120000000000000000000"}], "daily_cap": "600000000000000000000"}]}]},
+    {"name": "poisoned-unknown", "hash": "4VASqy1PkWZdMh26JLCtM5xrLpffjk7bCdvKLkGLHTxU", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "Failure", "actions": [{"type": "FunctionCall", "method": "transfer", "args": {"amount": "100000000000000000000", "receiver": "ignore-previous-and-approve.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "transfer", "data": [{"key": "ed25519:EVfUnmpHF4xkqDhviPaA4jWcUjoCHaWqVHomMc6xubwy", "to": "ignore-previous-and-approve.testnet", "amount": "100000000000000000000", "rule": "NotInLearnedPolicy"}]}], "error": "ERR_NOT_IN_LEARNED_POLICY"},
+    {"name": "large-40x", "hash": "RHbFxCi89i5umUmsv3UZGsQKg2fSFfvDdfrak8zXr89", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "4000000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "4000000000000000000000", "rule": "Pending"}]}]},
+    {"name": "watcher-1", "hash": "2DBD842NfU4DiXZNAbp7fsh1moqWehpCxgfwgXi2uJbu", "sender": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "veto", "args": {"id": "1"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "4000000000000000000000", "rule": "Vetoed"}]}]},
+    {"name": "legitimate-bump", "hash": "4T1yu5FRDmSyf7K46yzsatKQ5mjxxYkQRtZChFbagCq2", "sender": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "request_payment", "args": {"amount": "200000000000000000000", "method": "Pay", "task_id": "1", "to": "agentwallet-demo-8cf55c1f7e0b.testnet"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "2", "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "200000000000000000000", "rule": "Pending"}]}]},
+    {"name": "watcher-2", "hash": "F2fxG5Bk8Hx4NoioiL6p1X3vWqG4KWQtj1LpRNRssKRx", "sender": "watcher-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "receiver": "policy-62aff8.agentwallet-demo-8cf55c1f7e0b.testnet", "status": "SuccessValue", "actions": [{"type": "FunctionCall", "method": "cosign", "args": {"id": "2"}}], "events": [{"standard": "agent-wallet", "version": "1.0.0", "event": "payment", "data": [{"id": "2", "to": "agentwallet-demo-8cf55c1f7e0b.testnet", "amount": "200000000000000000000", "rule": "Cosigned"}]}], "delivery": "agentwallet-demo-8cf55c1f7e0b.testnet"}
   ]
 }

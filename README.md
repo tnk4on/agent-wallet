@@ -157,15 +157,16 @@ service and set `export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock`
 (the `docker` CLI is still required). Use a clean committed checkout of the build
 source commit recorded in [JUDGES.md](JUDGES.md#recorded-testnet-evidence) and
 `scripts/evidence.json` (`source_commit`), including the committed `Cargo.lock`.
-The operator must fill in `<SOURCE_COMMIT>` with the commit used to build the
-deployed WASM; the existing evidence predates the reproducible build switch.
+The deployed WASM was built with `cargo near build reproducible-wasm` at
+[e89d329d7a0558d23de24c4621fd851edff1c1c5](https://github.com/tnk4on/agent-wallet/commit/e89d329d7a0558d23de24c4621fd851edff1c1c5).
+Its SHA-256 matches the on-chain `code_hash` (base58-encoded).
 A different commit can
 change the embedded metadata and WASM hash even if contract logic is identical.
 
 From the repository root:
 
 ```bash
-git checkout <source_commit>
+git checkout e89d329d7a0558d23de24c4621fd851edff1c1c5
 cd contracts/wallet
 cargo near build reproducible-wasm
 sha256sum target/near/wallet.wasm
@@ -192,8 +193,7 @@ print("PASS: deployed code matches this build")
 PYCODE
 ```
 
-Replace `<source_commit>` with the recorded build source commit and
-`<WALLET_ACCOUNT_ID>` with the deployed testnet wallet. The RPC query is
+Replace `<WALLET_ACCOUNT_ID>` with the deployed testnet wallet. The RPC query is
 read-only and needs no keys. `code_hash` is the base58 encoding of the WASM's
 SHA-256 digest; `sha256sum` prints that digest in hexadecimal.
 The pinned image/digest and inner build command in `Cargo.toml` control the build;
