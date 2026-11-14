@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.93.0
+        with:
+          components: rustfmt, clippy
+          targets: wasm32-unknown-unknown
+      - name: Check Rust formatting
+        working-directory: contracts/wallet
+        run: cargo fmt --check
+      - name: Lint Rust
+        working-directory: contracts/wallet
+        run: cargo clippy --all-targets -- -D warnings
+      - name: Test contract
+        working-directory: contracts/wallet
+        run: cargo test
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Test watcher
+        run: node --test scripts/watcher.test.mjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test verifier
+        run: python3 scripts/verify_test.py
+      - name: Test demo storage safety
+        run: python3 scripts/demo_test.py
